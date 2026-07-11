@@ -6,6 +6,12 @@ Grep last 10 entries: `grep "^## \[" wiki/log.md | tail -10`
 
 ---
 
+## [2026-07-11] query | Saga pattern + Database scaling
+- Source: conversation
+- Pages created: `wiki/concepts/saga-pattern.md`, `wiki/concepts/database-scaling.md`
+- Pages updated: `wiki/index.md`
+- Notes: Saga covers distributed transaction problem, choreography vs orchestration, 2PC comparison, payment example, idempotency. DB scaling covers full ladder (vertical → cache → connection pool → index → replicas → partitioning → CQRS → sharding → batching) with diagrams for each.
+
 ## [2026-07-11] query | Microservice communication patterns
 - Source: conversation
 - Pages created: `wiki/concepts/microservice-communication.md`
