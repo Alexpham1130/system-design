@@ -6,6 +6,12 @@ Grep last 10 entries: `grep "^## \[" wiki/log.md | tail -10`
 
 ---
 
+## [2026-07-11] query | Microservice communication patterns
+- Source: conversation
+- Pages created: `wiki/concepts/microservice-communication.md`
+- Pages updated: `wiki/index.md`
+- Notes: Covered REST vs gRPC (sync), SQS / SNS+SQS / Kinesis / Kafka (async). Cascading failure diagram, fan-out pattern, decision tree, hybrid e-commerce example. Stubs: [[saga-pattern]], [[aws-sqs]], [[apache-kafka]].
+
 ## [2026-07-11] query | API Gateway + Microservices pattern
 - Source: conversation
 - Pages created: `wiki/concepts/api-gateway-microservices-pattern.md`
