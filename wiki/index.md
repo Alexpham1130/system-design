@@ -1,12 +1,13 @@
 # Wiki Index
 
-Last updated: 2026-07-11 | 0 raw sources | 5 pages
+Last updated: 2026-07-11 | 0 raw sources | 6 pages
 
 ## Concepts
 - [[api-gateway-microservices-pattern]] — One shared API Gateway at the edge; each microservice owns its own private ALB and fleet
 - [[microservice-communication]] — Sync (REST, gRPC) vs async (SQS, SNS, Kinesis, Kafka) — trade-offs, patterns, when to use which
 - [[saga-pattern]] — Distributed transactions across microservices via compensating actions; choreography vs orchestration
 - [[database-scaling]] — Layered techniques for massive datasets: caching, replicas, partitioning, sharding, CQRS
+- [[reverse-proxy]] — Sits in front of backends for SSL, routing, load balancing; foundation that API Gateway builds on
 
 ## Systems
 - [[aws-api-gateway]] — Managed AWS front door: routing, auth, throttling, caching, WebSocket support

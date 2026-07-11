@@ -6,6 +6,12 @@ Grep last 10 entries: `grep "^## \[" wiki/log.md | tail -10`
 
 ---
 
+## [2026-07-11] query | Reverse proxy concept and verdict
+- Source: conversation
+- Pages created: `wiki/concepts/reverse-proxy.md`
+- Pages updated: `wiki/index.md`
+- Notes: Forward vs reverse proxy distinction, core functions, monolith vs microservices usage, reverse proxy vs API Gateway vs CDN comparison table, common software (nginx/HAProxy/Traefik/Envoy/ALB), when-to-use verdict, full layered architecture diagram.
+
 ## [2026-07-11] query | Saga pattern + Database scaling
 - Source: conversation
 - Pages created: `wiki/concepts/saga-pattern.md`, `wiki/concepts/database-scaling.md`
