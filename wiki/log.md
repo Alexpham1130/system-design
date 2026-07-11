@@ -6,6 +6,11 @@ Grep last 10 entries: `grep "^## \[" wiki/log.md | tail -10`
 
 ---
 
+## [2026-07-11] note | Pending topics for next session
+- Sharding vs Partitioning — surface covered in [[database-scaling]], needs dedicated deep-dive page. Key angle: partitioning = same server, transparent; sharding = multiple servers, app must route. Cover range/hash/list strategies, shard key selection pitfalls, cross-shard query problem, rebalancing.
+- DB Replication on-prem — AWS (RDS Multi-AZ, Aurora) makes it a checkbox. On-prem: Postgres WAL streaming, MySQL binlog, failover tooling (Patroni, Orchestrator), replication lag, WAL slot bloat, split-brain.
+- DB Indexing deep dive — surface in [[database-scaling]]. Needs: B-Tree internals, index selectivity, covering indexes, EXPLAIN ANALYZE, index bloat and VACUUM.
+
 ## [2026-07-11] query | Reverse proxy concept and verdict
 - Source: conversation
 - Pages created: `wiki/concepts/reverse-proxy.md`
