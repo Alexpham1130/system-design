@@ -86,6 +86,8 @@ Browser gets cookie safety; internal services still get JWTs for identity propag
 A common production stack uses **all of these at once**: short-lived stateless JWT access tokens (fast, no lookup) + stateful refresh tokens (revocable) + mTLS between services + `HttpOnly` cookies at the browser edge. Not either/or — different tools at different boundaries.
 
 ## See also
+- [[oauth-oidc]] — OAuth is orthogonal to this axis; its access tokens can be opaque (session-like) or JWT
+- [[service-to-service-auth]] — mTLS + propagated JWT for internal hops
 - [[api-gateway-microservices-pattern]] — where edge auth and JWT propagation happen
 - [[reverse-proxy]] — TLS termination and the edge where sessions/tokens are validated
 - [[aws-api-gateway]] — managed front door with built-in auth/throttling

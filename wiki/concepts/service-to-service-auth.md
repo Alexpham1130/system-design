@@ -69,5 +69,6 @@ The developer writes ordinary REST/gRPC; the mesh silently upgrades every hop to
 
 ## See also
 - [[session-vs-jwt-auth]] — sessions vs JWT, and where JWT propagation fits
+- [[oauth-oidc]] — delegated authorization at the edge, upstream of internal propagation
 - [[api-gateway-microservices-pattern]] — validate-once-at-edge, propagate-inward
 - [[reverse-proxy]] — Envoy as the sidecar proxy that terminates mTLS
