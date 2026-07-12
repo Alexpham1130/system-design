@@ -30,6 +30,12 @@ Grep last 10 entries: `grep "^## \[" wiki/log.md | tail -10`
 - Pages updated: `wiki/index.md`
 - Notes: Corrected "CORS enables the call" → CORS is a *relaxation* of the Same-Origin Policy (SOP is the wall, CORS the door; browser enforces both). Origin = scheme+host+port, so myapp.com vs api.myapp.com is cross-origin. Covered simple vs preflight (OPTIONS), the credentialed-request rule (Allow-Credentials:true cannot combine with Allow-Origin:*, must echo origin + Vary:Origin), where headers live (app middleware vs edge proxy/gateway). Key framing: CORS is NOT a security boundary (browser-only; curl/Postman ignore it) and NOT a CSRF defense. Architectural alternative: same-origin reverse proxy / gateway at myapp.com/api/* kills CORS and keeps cookies first-party. Cross-linked [[reverse-proxy]], [[api-gateway-microservices-pattern]], [[aws-api-gateway]], [[oauth-oidc]], [[service-to-service-auth]]. Stub: [[csrf]] (next topic).
 
+## [2026-07-12] query | CSRF
+- Source: conversation
+- Pages created: `wiki/concepts/csrf.md`
+- Pages updated: `wiki/index.md`
+- Notes: CSRF = ambient-authority write attack; browser attaches cookies by destination regardless of initiator. SOP/CORS do NOT stop it (damage on send, not read) — direct callback to [[cors]] "not a CSRF defense". Vulnerability follows token location: cookie (session OR JWT-in-cookie) = vulnerable; Authorization:Bearer header = immune. Defenses: SameSite (Lax default, Strict, None) with the Lax top-level-GET catch → GET must be safe; synchronizer token (stateful); double-submit cookie (stateless, weaker under subdomain/XSS); custom-header requirement for JSON APIs. Key tension captured: HttpOnly-cookie XSS defense reintroduces CSRF (BFF must add SameSite+token) — XSS and CSRF defenses pull against each other. Cross-linked [[session-vs-jwt-auth]], [[oauth-oidc]], [[service-to-service-auth]], [[reverse-proxy]]. Web-security cluster now: cors + csrf; XSS still a gap.
+
 ## [2026-07-11] note | Pending topics for next session
 - Sharding vs Partitioning — surface covered in [[database-scaling]], needs dedicated deep-dive page. Key angle: partitioning = same server, transparent; sharding = multiple servers, app must route. Cover range/hash/list strategies, shard key selection pitfalls, cross-shard query problem, rebalancing.
 - DB Replication on-prem — AWS (RDS Multi-AZ, Aurora) makes it a checkbox. On-prem: Postgres WAL streaming, MySQL binlog, failover tooling (Patroni, Orchestrator), replication lag, WAL slot bloat, split-brain.
