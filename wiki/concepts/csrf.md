@@ -113,6 +113,7 @@ Layered default:
 
 ## See also
 
+- [[xss]] — strictly more powerful; defeats most CSRF defenses by reading the token
 - [[cors]] — often mistaken for a CSRF defense; it is not (governs reads, not sends)
 - [[session-vs-jwt-auth]] — cookie vs header token determines CSRF exposure; BFF re-opens it
 - [[oauth-oidc]] — authorization layer; orthogonal to CSRF

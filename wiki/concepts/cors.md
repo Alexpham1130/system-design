@@ -120,3 +120,4 @@ An `[[api-gateway-microservices-pattern]]` extends this: one public origin, fan-
 - [[oauth-oidc]] — the actual authorization layer (CORS is not one)
 - [[service-to-service-auth]] — real security boundaries behind the gateway
 - [[csrf]] — the attack SOP/SameSite defend against (CORS does not)
+- [[xss]] — attacker code running in your origin; CORS is no defense against it

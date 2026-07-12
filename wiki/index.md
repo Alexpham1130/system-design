@@ -1,6 +1,6 @@
 # Wiki Index
 
-Last updated: 2026-07-12 | 0 raw sources | 11 pages
+Last updated: 2026-07-12 | 0 raw sources | 12 pages
 
 ## Concepts
 - [[api-gateway-microservices-pattern]] — One shared API Gateway at the edge; each microservice owns its own private ALB and fleet
@@ -12,6 +12,7 @@ Last updated: 2026-07-12 | 0 raw sources | 11 pages
 - [[oauth-oidc]] — OAuth = delegated authorization (orthogonal to session-vs-JWT); OIDC adds authentication via a JWT ID token; access tokens can be opaque or JWT
 - [[cors]] — Browser relaxation of Same-Origin Policy; not a security boundary; credentialed-request rule; same-origin proxy avoids it entirely
 - [[csrf]] — Ambient-authority (cookie) attack; SOP/CORS don't stop it; SameSite + tokens; header-based bearer tokens are immune; tension with XSS/BFF
+- [[xss]] — Attacker JS runs in your origin; top of the hierarchy (defeats CSRF defenses); context-aware output encoding + CSP; input validation is not the fix
 
 ## Systems
 - [[aws-api-gateway]] — Managed AWS front door: routing, auth, throttling, caching, WebSocket support
