@@ -1,6 +1,6 @@
 # Wiki Index
 
-Last updated: 2026-07-11 | 0 raw sources | 6 pages
+Last updated: 2026-07-12 | 0 raw sources | 8 pages
 
 ## Concepts
 - [[api-gateway-microservices-pattern]] — One shared API Gateway at the edge; each microservice owns its own private ALB and fleet
@@ -8,12 +8,13 @@ Last updated: 2026-07-11 | 0 raw sources | 6 pages
 - [[saga-pattern]] — Distributed transactions across microservices via compensating actions; choreography vs orchestration
 - [[database-scaling]] — Layered techniques for massive datasets: caching, replicas, partitioning, sharding, CQRS
 - [[reverse-proxy]] — Sits in front of backends for SSL, routing, load balancing; foundation that API Gateway builds on
+- [[service-to-service-auth]] — mTLS (workload identity, transport layer) + propagated JWT (user identity); how it fits REST/gRPC and the service mesh
 
 ## Systems
 - [[aws-api-gateway]] — Managed AWS front door: routing, auth, throttling, caching, WebSocket support
 
 ## Trade-offs
-<!-- Comparison and trade-off pages -->
+- [[session-vs-jwt-auth]] — Stateful sessions vs stateless JWT; revocation vs statelessness; per-boundary fit (browser/mobile/service-to-service), BFF pattern
 
 ## Case Studies
 <!-- How companies solved specific problems -->

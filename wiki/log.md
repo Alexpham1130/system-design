@@ -6,6 +6,18 @@ Grep last 10 entries: `grep "^## \[" wiki/log.md | tail -10`
 
 ---
 
+## [2026-07-11] query | Session vs JWT authentication
+- Source: conversation
+- Pages created: `wiki/trade-offs/session-vs-jwt-auth.md`
+- Pages updated: `wiki/index.md`
+- Notes: Stateful sessions (reference + shared store) vs stateless JWT (self-contained, signature-verified). Core trade-off is revocation/control vs statelessness, not decode-vs-query time. Framed by boundary rather than "microservices vs client-server": HttpOnly cookies for server-rendered browser, JWT for mobile, HttpOnly-cookie/BFF for SPA (localStorage JWT = anti-pattern), JWT-for-identity-propagation + mTLS-for-service-authn internally. BFF pattern and hybrid-is-normal. TODO next: service-to-service with mTLS and how it fits REST/gRPC — likely a dedicated mTLS or service-to-service-auth concept page.
+
+## [2026-07-12] query | Service-to-service auth (mTLS + JWT)
+- Source: conversation
+- Pages created: `wiki/concepts/service-to-service-auth.md`
+- Pages updated: `wiki/index.md`, `wiki/trade-offs/session-vs-jwt-auth.md`
+- Notes: mTLS = workload identity at transport layer (two-way cert verification, CA-signed) answering "which service"; propagated JWT = user identity at app layer answering "which user" — complementary, both carried per internal call. mTLS sits under REST and gRPC (gRPC has first-class support via channel credentials). Real-world delivery via service mesh (Istio/Linkerd/Consul) + Envoy sidecars terminating mTLS transparently, control plane auto-rotating SPIFFE/SPIRE certs = zero-trust. Cross-linked to [[session-vs-jwt-auth]] and [[api-gateway-microservices-pattern]].
+
 ## [2026-07-11] note | Pending topics for next session
 - Sharding vs Partitioning — surface covered in [[database-scaling]], needs dedicated deep-dive page. Key angle: partitioning = same server, transparent; sharding = multiple servers, app must route. Cover range/hash/list strategies, shard key selection pitfalls, cross-shard query problem, rebalancing.
 - DB Replication on-prem — AWS (RDS Multi-AZ, Aurora) makes it a checkbox. On-prem: Postgres WAL streaming, MySQL binlog, failover tooling (Patroni, Orchestrator), replication lag, WAL slot bloat, split-brain.
