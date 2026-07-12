@@ -24,6 +24,12 @@ Grep last 10 entries: `grep "^## \[" wiki/log.md | tail -10`
 - Pages updated: `wiki/index.md`, `wiki/trade-offs/session-vs-jwt-auth.md`, `wiki/concepts/service-to-service-auth.md`
 - Notes: Corrected "OAuth = session token" misconception. OAuth 2.0 = delegated-authorization framework, orthogonal to the session-vs-JWT axis; defines token roles not formats. Access token can be opaque (introspection = stateful/session-like) OR JWT (stateless). Refresh token = stateful. OIDC = auth layer on top of OAuth; ID token always a JWT. BFF is the clean example that OAuth ≠ browser JWT. Cross-linked into the auth cluster.
 
+## [2026-07-12] query | CORS
+- Source: conversation
+- Pages created: `wiki/concepts/cors.md`
+- Pages updated: `wiki/index.md`
+- Notes: Corrected "CORS enables the call" → CORS is a *relaxation* of the Same-Origin Policy (SOP is the wall, CORS the door; browser enforces both). Origin = scheme+host+port, so myapp.com vs api.myapp.com is cross-origin. Covered simple vs preflight (OPTIONS), the credentialed-request rule (Allow-Credentials:true cannot combine with Allow-Origin:*, must echo origin + Vary:Origin), where headers live (app middleware vs edge proxy/gateway). Key framing: CORS is NOT a security boundary (browser-only; curl/Postman ignore it) and NOT a CSRF defense. Architectural alternative: same-origin reverse proxy / gateway at myapp.com/api/* kills CORS and keeps cookies first-party. Cross-linked [[reverse-proxy]], [[api-gateway-microservices-pattern]], [[aws-api-gateway]], [[oauth-oidc]], [[service-to-service-auth]]. Stub: [[csrf]] (next topic).
+
 ## [2026-07-11] note | Pending topics for next session
 - Sharding vs Partitioning — surface covered in [[database-scaling]], needs dedicated deep-dive page. Key angle: partitioning = same server, transparent; sharding = multiple servers, app must route. Cover range/hash/list strategies, shard key selection pitfalls, cross-shard query problem, rebalancing.
 - DB Replication on-prem — AWS (RDS Multi-AZ, Aurora) makes it a checkbox. On-prem: Postgres WAL streaming, MySQL binlog, failover tooling (Patroni, Orchestrator), replication lag, WAL slot bloat, split-brain.
